@@ -37,13 +37,13 @@ The project involves designing a toy car in SolidWorks, exporting it as a URDF, 
    
 14. Then run the following commands:
     
-   `ros2 run rally_car proportional_controller.py`
+      `ros2 run rally_car proportional_controller.py`
 
-   to run the controller
+      to run the controller
 
-   `ros2 run rally_car error_values.py`
+      `ros2 run rally_car error_values.py`
 
-   to print the values of error in terminal
+      to print the values of error in terminal
    
 Note*: a custom message Errorval and Controlval is used to get the error values and control values of the yaw angle in order to plot them. This is because, rqt_plot takes single values and not data of type arrays. The msg Errorval and Control val is published to /error/val and /control/val topics. Another node 'Error_values' is subscribed to these topics and prints the values (error only) to the terminal
 
