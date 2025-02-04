@@ -44,8 +44,21 @@ The project involves designing a toy car in SolidWorks, exporting it as a URDF, 
       `ros2 run rally_car error_values.py`
 
       to print the values of error in terminal
+
+15. You can also control your car using teleop in a racing competition arena, to do this, use the commands given below:
+
+      `ros2 launch package_name competition.launch.py`
+
+       This would launch the arena
+
+       `ros2 run rally_car rally_car_telop.py`
+
+       This would run the teleop script and you would be able to control the car through the terminal
    
-Note*: a custom message Errorval and Controlval is used to get the error values and control values of the yaw angle in order to plot them. This is because, rqt_plot takes single values and not data of type arrays. The msg Errorval and Control val is published to /error/val and /control/val topics. Another node 'Error_values' is subscribed to these topics and prints the values (error only) to the terminal
+**Note**: a custom message Errorval and Controlval is used to get the error values and control values of the yaw angle in order to plot them. This is because, rqt_plot takes single values and not data of type arrays. The msg Errorval and Control val is published to /error/val and /control/val topics. Another node 'Error_values' is subscribed to these topics and prints the values (error only) to the terminal.
+
+**Note**: It is assumed that you have ros2 already installed on your PC. I have done this project on  ROS2 Galactic Geoechelone
+
 
 ## How it works
 * The program consists of a move forward method, a control method and an imu_callback
