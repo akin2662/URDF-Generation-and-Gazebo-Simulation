@@ -15,18 +15,28 @@ The project involves designing a toy car in SolidWorks, exporting it as a URDF, 
 1. Download the zip file and extract it
 2. The assembly.zip contains the different parts of the the rally car
 3. To run, you will first need to create a ROS2 workspace and build it.
+   
    `mkdir -p ~/your_workspace/src`
+   
    `cd ~/your_workspace/src`
-4. Before building the workspace, you need to resolve package dependencies.
-   `rosdep install -i --from-path src --rosdistro galactic -y`
+   
+5. Before building the workspace, you need to resolve package dependencies.
+
+   `rosdep install -i --from-path src --rosdistro galactic -y
+   
    **Note:** Make sure you are not in the src directory
-5. Then run the following command (make sure you are still in your workspace)
+7. Then run the following command (make sure you are still in your workspace)
+   
    `colcon build`
-6. After successfully building the workspace, you will see 4 directories: build install log src
-7. Then go to the src folder and paste the 'rally_car' package, extracted from the zip file you downloaded
-8. Then go back to a folder in your workspace and again build it:
+   
+10. After successfully building the workspace, you will see 4 directories: build install log src
+11. Then go to the src folder and paste the 'rally_car' package, extracted from the zip file you downloaded
+12. Then go back to a folder in your workspace and again build it:
+    
    `colcon build`
-9. Then run the following commands:
+   
+14. Then run the following commands:
+    
    `ros2 run rally_car proportional_controller.py`
 
    to run the controller
