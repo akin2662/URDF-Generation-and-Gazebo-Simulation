@@ -1,0 +1,646 @@
+<?xml version="1.0"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="rally_car" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="body_color">
+    <visual>
+    <material>
+      <ambient>1 0 0 1</ambient>
+      <diffuse>1 0 0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="axle_color">
+    <visual>
+    <material>
+      <ambient>0.792156862745098 0.819607843137255 0.933333333333333 1</ambient>
+      <diffuse>0.792156862745098 0.819607843137255 0.933333333333333 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="wheel_color">
+    <visual>
+    <material>
+      <ambient>0 0 0 1</ambient>
+      <diffuse>0 0 0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <xacro:macro name="lidar_color">
+    <visual>
+    <material>
+      <ambient>1 0 0 1</ambient>
+      <diffuse>1 0 0 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <emissive>0 0 0 0</emissive>
+    </material>
+    </visual>
+  </xacro:macro>
+  <link name="dummy_link"></link>
+  <link
+    name="car_body">
+    <inertial>
+      <origin
+        xyz="0.52242 0.254 0.20009"
+        rpy="0 0 0" />
+      <mass
+        value="3" />
+      <inertia
+        ixx="5.5142"
+        ixy="7.7851E-05"
+        ixz="-0.83435"
+        iyy="12.628"
+        iyz="7.7338E-06"
+        izz="13.794" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/car_body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/car_body.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="dummy_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="dummy_link"/>
+    <child link="car_body"/>
+  </joint>
+
+  <link
+    name="axle_left">
+    <inertial>
+      <origin
+        xyz="0.037677 0.064593 -3.2989E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.05553" />
+      <inertia
+        ixx="0.00019377"
+        ixy="2.2692E-05"
+        ixz="3.4492E-08"
+        iyy="4.1006E-05"
+        iyz="-1.9869E-08"
+        izz="0.00023317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/axle_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/axle_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="car_2_axle_left"
+    type="continuous">
+    <origin
+      xyz="0.22719 0.011999 0"
+      rpy="1.5708 0 1.5733" />
+    <parent
+      link="car_body" />
+    <child
+      link="axle_left" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="frontwheel_left">
+    <inertial>
+      <origin
+        xyz="-4.3257E-06 1.0244E-05 0.0127"
+        rpy="0 0 0" />
+      <mass
+        value="1.6723" />
+      <inertia
+        ixx="0.0060859"
+        ixy="-1.3765E-09"
+        ixz="-1.7081E-06"
+        iyy="0.0060859"
+        iyz="4.0451E-06"
+        izz="0.011101" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/frontwheel_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/frontwheel_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="axle_2_wheel_left"
+    type="continuous">
+    <origin
+      xyz="0 -0.01016 0"
+      rpy="-1.5708 -0.39955 -1.5708" />
+    <parent
+      link="axle_left" />
+    <child
+      link="frontwheel_left" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="axle_right">
+    <inertial>
+      <origin
+        xyz="0.037677 0.064593 -0.00014587"
+        rpy="0 0 0" />
+      <mass
+        value="0.05553" />
+      <inertia
+        ixx="0.00019377"
+        ixy="2.2692E-05"
+        ixz="1.5251E-07"
+        iyy="4.1006E-05"
+        iyz="-8.7856E-08"
+        izz="0.00023317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/axle_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/axle_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="car_2_axle_right"
+    type="continuous">
+    <origin
+      xyz="0.22719 0.496 0"
+      rpy="1.5708 0 -1.5745" />
+    <parent
+      link="car_body" />
+    <child
+      link="axle_right" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="frontwheel_right">
+    <inertial>
+      <origin
+        xyz="-4.9099E-05 -2.6298E-06 -0.0127"
+        rpy="0 0 0" />
+      <mass
+        value="1.6723" />
+      <inertia
+        ixx="0.006086"
+        ixy="4.0129E-09"
+        ixz="1.9388E-05"
+        iyy="0.0060859"
+        iyz="1.0384E-06"
+        izz="0.011101" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/frontwheel_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/frontwheel_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="axle_2_wheel_right"
+    type="continuous">
+    <origin
+      xyz="0 -0.01016 0"
+      rpy="1.5708 -1.5173 -1.5708" />
+    <parent
+      link="axle_right" />
+    <child
+      link="frontwheel_right" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="backwheel_left">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 3.3307E-16 -0.0254"
+        rpy="0 0 0" />
+      <mass
+        value="1.6723" />
+      <inertia
+        ixx="0.0060859"
+        ixy="-1.7426E-12"
+        ixz="-6.8046E-19"
+        iyy="0.0060859"
+        iyz="-6.902E-19"
+        izz="0.011101" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/backwheel_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/backwheel_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="car_2_wheel_left"
+    type="continuous">
+    <origin
+      xyz="0.73645 0 0.0078439"
+      rpy="-1.5708 0.13126 -3.1416" />
+    <parent
+      link="car_body" />
+    <child
+      link="backwheel_left" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="backwheel_right">
+    <inertial>
+      <origin
+        xyz="-3.9413E-15 -4.6629E-15 -0.0381"
+        rpy="0 0 0" />
+      <mass
+        value="1.6723" />
+      <inertia
+        ixx="0.0060859"
+        ixy="1.9066E-12"
+        ixz="8.435E-19"
+        iyy="0.0060859"
+        iyz="-1.7361E-19"
+        izz="0.011101" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/backwheel_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/backwheel_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="car_2_wheel_right"
+    type="continuous">
+    <origin
+      xyz="0.73457 0.4445 0.0080615"
+      rpy="1.5708 -1.5362 0" />
+    <parent
+      link="car_body" />
+    <child
+      link="backwheel_right" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="lidar_cylinder">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/lidar_cylinder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://rally_car/meshes/lidar_cylinder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lidar_cylinder_joint"
+    type="fixed">
+    <origin
+      xyz="0.21551 0.254 0.30732"
+      rpy="0 0 0" />
+    <parent
+      link="car_body" />
+    <child
+      link="lidar_cylinder" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+    <gazebo reference= "lidar_cylinder">
+    <sensor name="lidar" type="ray">
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+      <always_on>true</always_on>
+      <visualize>true</visualize>
+      <update_rate>5</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1.00000</resolution>
+            <min_angle>0.000000</min_angle>
+            <max_angle>6.280000</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.120000</min>
+          <max>3.5</max>
+          <resolution>0.015000</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+    
+      <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+        <ros>
+          <remapping>~/out:=scan</remapping>
+        </ros>
+        <output_type>sensor_msgs/LaserScan</output_type>
+        <frame_name>lidar_cylinder</frame_name>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<gazebo reference="car_body">
+  <gravity>true</gravity>
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <topic>__default_topic__</topic>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <topicName>imu</topicName>
+      <bodyName>car_body</bodyName>
+      <updateRateHZ>10.0</updateRateHZ>
+      <gaussianNoise>0.0</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <frameName>car_body</frameName>
+      <initialOrientationAsReference>false</initialOrientationAsReference>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+</gazebo>
+
+  <ros2_control name="GazeboSystem" type="system">
+  <hardware>
+     <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+# Velocity Controllers
+
+  <joint name="axle_2_wheel_left">
+    <command_interface name="velocity">
+      <param name="min">-1000.0</param>
+      <param name="max">1000.0</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="axle_2_wheel_right">
+    <command_interface name="velocity">
+      <param name="min">-1000.0</param>
+      <param name="max">1000.0</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="car_2_wheel_left">
+    <command_interface name="velocity">
+      <param name="min">-1000.0</param>
+      <param name="max">1000.0</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="car_2_wheel_right">
+    <command_interface name="velocity">
+      <param name="min">-1000.0</param>
+      <param name="max">1000.0</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+
+# Position Controller
+  <joint name="car_2_axle_left">
+    <command_interface name="position">
+      <param name="min">-3.14</param>
+      <param name="max">3.14</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="car_2_axle_right">
+    <command_interface name="position">
+      <param name="min">-3.14</param>
+      <param name="max">3.14</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="axle_2_wheel_left">
+    <command_interface name="position">
+      <param name="min">-4.712</param>
+      <param name="max">4.712</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+
+  <joint name="axle_2_wheel_right">
+    <command_interface name="position">
+      <param name="min">-4.712</param>
+      <param name="max">4.712</param>
+    </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+  </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <parameters>$(find rally_car)/config/control.yaml</parameters>
+    </plugin>
+  </gazebo>
+  
+  <gazebo reference="car_body">
+    <xacro:body_color />
+  </gazebo>
+  <gazebo reference="axle_left">
+    <xacro:axle_color />
+  </gazebo>
+  <gazebo reference="axle_right">
+    <xacro:axle_color />
+  </gazebo>
+  <gazebo reference="frontwheel_left">
+    <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="frontwheel_right">
+    <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="backwheel_left">
+    <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="backwheel_right">
+    <xacro:wheel_color />
+  </gazebo>
+  <gazebo reference="lidar_cylinder">
+    <xacro:lidar_color />
+  </gazebo>
+</robot>
