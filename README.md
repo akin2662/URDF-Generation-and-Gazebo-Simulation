@@ -33,7 +33,7 @@ The project involves designing a toy car in SolidWorks, exporting it as a URDF, 
 11. Then go to the src folder and paste the 'rally_car' package, extracted from the zip file you downloaded
 12. Then go back to a folder in your workspace and again build it:
     
-   `colcon build`
+      `colcon build`
    
 14. Then run the following commands:
     
