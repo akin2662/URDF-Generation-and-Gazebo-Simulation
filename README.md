@@ -64,5 +64,6 @@ The project involves designing a toy car in SolidWorks, exporting it as a URDF, 
 * The program consists of a move forward method, a control method and an imu_callback
 * The robots position is acquired through the imu call back through which the control and move forward methods are called.
 
-
+## Demo
+Follow this [Link](https://drive.google.com/drive/folders/1JN6iMnVJwxHNW2eKGK_BJsSdOB53MKLY?usp=sharing) to checkout the project videos
 
